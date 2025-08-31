@@ -6,7 +6,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 
 function Review() {
@@ -117,11 +117,6 @@ function Review() {
                     <p className="flex-1 italic text-xl">“{client.review}”</p>
                     <div className="flex items-center gap-3 mt-4">
                       <Avatar className="w-12 h-12">
-                        <AvatarImage
-                          className="w-12 h-12"
-                          src={`/avatar-${client.name}.jpg`}
-                          alt={`Avatar ${client.name}`}
-                        />
                         <AvatarFallback>
                           <User />
                         </AvatarFallback>

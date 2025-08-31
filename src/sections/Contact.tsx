@@ -99,7 +99,7 @@ function Contact() {
             />
           </div>
 
-          <select className="border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-teal-500 outline-none w-full">
+          <select aria-label="Serviço desejado" className="border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-teal-500 outline-none w-full">
             <option>Selecione o serviço desejado</option>
             <option>Automação de iluminação</option>
             <option>Automação de som ambiente</option>
