@@ -47,7 +47,7 @@ function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         href="#contato"
-        className="px-6 py-3 bg-teal-500 hover:bg-[#7FB3D5] text-white rounded-full text-lg font-medium transition-colors shadow-lg"
+        className="px-6 py-3 bg-[#00574E] hover:bg-[#4cafa5] text-white rounded-full text-lg font-medium transition-colors shadow-lg"
       >
         🚀 Solicite agora seu orçamento
       </motion.a>
