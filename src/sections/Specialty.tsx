@@ -145,7 +145,7 @@ function Speacialty() {
                             key={idx}
                             className="flex items-center gap-2 mt-2"
                           >
-                            <Sparkles className="text-amber-200" />
+                            <Sparkles className="text-amber-200 min-w-6 min-h-6" />
                             <span>{feature}</span>
                           </li>
                         ))}
@@ -157,9 +157,9 @@ function Speacialty() {
                         {specialty.benefits?.map((feature, idx) => (
                           <li
                             key={idx}
-                            className="flex items-center gap-2 mt-2"
+                            className="flex items-center gap-2 mt-3"
                           >
-                            <CircleCheck className="text-emerald-500" />
+                            <CircleCheck className="text-emerald-500 min-w-6 min-h-6" />
                             <span>{feature}</span>
                           </li>
                         ))}

@@ -126,7 +126,7 @@ function Contact() {
             </motion.button>
 
             <motion.a
-              href="https://wa.me/5511999999999"
+              href="https://wa.me/5511947596174"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 flex justify-center items-center bg-green-500 hover:bg-green-600 text-white font-bold px-3 py-3 rounded-2xl shadow-lg transition"
