@@ -3,20 +3,60 @@
 import { Mail, Phone, MapPin, User2 } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import { useState } from "react";
+import { toast } from "sonner";
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const container: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    setIsSubmitting(true);
+
+    const form = e.target as HTMLFormElement;
+
+    const formData = new FormData(form);
+
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+    const phone = formData.get("phone");
+    const location = formData.get("location");
+    const service = formData.get("service");
+
     e.preventDefault();
 
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    try {
+      const res = await fetch("/api/send-mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message, phone, location, service }),
+      });
+
+      if (res.status !== 200) {
+        throw new Error();
+      }
+
+      toast.success("E-mail enviado com sucesso!", {
+        duration: 3000,
+      })
+
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (error) {
+      toast.error("Ocorreu um erro ao enviar seu e-mail, tente novamente mais tarde.", {
+        duration: 3000,
+      })
+
+      console.log(error);
+
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -63,9 +103,11 @@ function Contact() {
 
             <input
               type="text"
+              name="name"
               placeholder="Nome completo"
-              className="border border-gray-300 rounded-lg p-3 pl-12 w-full focus:ring-1 focus:ring-teal-500 outline-none"
+              className="border border-gray-300 rounded-lg p-3 pl-12 w-full focus:ring-1 focus:ring-teal-500 outline-none disabled:cursor-not-allowed disabled:opacity-50"
               required
+              disabled={isSubmitting || submitted}
             />
           </div>
 
@@ -73,9 +115,11 @@ function Contact() {
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="email"
+              name="email"
               placeholder="E-mail"
-              className="border border-gray-300 rounded-lg p-3 pl-12 w-full focus:ring-1 focus:ring-teal-500 outline-none"
+              className="border border-gray-300 rounded-lg p-3 pl-12 w-full focus:ring-1 focus:ring-teal-500 outline-none disabled:cursor-not-allowed disabled:opacity-50"
               required
+              disabled={isSubmitting || submitted}
             />
           </div>
 
@@ -83,9 +127,11 @@ function Contact() {
             <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="tel"
+              name="phone"
               placeholder="Telefone"
-              className="border border-gray-300 rounded-lg p-3 pl-12 w-full focus:ring-1 focus:ring-teal-500 outline-none"
+              className="border border-gray-300 rounded-lg p-3 pl-12 w-full focus:ring-1 focus:ring-teal-500 outline-none disabled:cursor-not-allowed disabled:opacity-50"
               required
+              disabled={isSubmitting || submitted}
             />
           </div>
 
@@ -93,13 +139,20 @@ function Contact() {
             <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
+              name="location"
               placeholder="Cidade / Bairro"
-              className="border border-gray-300 rounded-lg p-3 pl-12 w-full focus:ring-1 focus:ring-teal-500 outline-none"
+              className="border border-gray-300 rounded-lg p-3 pl-12 w-full focus:ring-1 focus:ring-teal-500 outline-none disabled:cursor-not-allowed disabled:opacity-50"
               required
+              disabled={isSubmitting || submitted}
             />
           </div>
 
-          <select aria-label="Serviço desejado" className="border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-teal-500 outline-none w-full">
+          <select
+            aria-label="Serviço desejado"
+            name="service"
+            className="border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-teal-500 outline-none w-full disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={isSubmitting || submitted}
+          >
             <option>Selecione o serviço desejado</option>
             <option>Automação de iluminação</option>
             <option>Automação de som ambiente</option>
@@ -109,9 +162,11 @@ function Contact() {
 
           <div>
             <textarea
+              name="message"
               placeholder="Mensagem / Observações"
               rows={4}
-              className="border border-gray-300 rounded-lg p-4 w-full focus:ring-1 focus:ring-teal-500 outline-none"
+              disabled={isSubmitting || submitted}
+              className="border border-gray-300 rounded-lg p-4 w-full focus:ring-1 focus:ring-teal-500 outline-none disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
 
@@ -119,8 +174,9 @@ function Contact() {
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <motion.button
               type="submit"
-              className="cursor-pointer flex-1 bg-white hover:bg-gray-100 text-teal-900 font-bold px-3 py-3 rounded-2xl shadow-lg border border-gray-200 transition"
+              className="cursor-pointer flex-1 bg-white hover:bg-gray-100 text-teal-900 font-bold px-3 py-3 rounded-2xl shadow-lg border border-gray-200 transition disabled:cursor-not-allowed disabled:opacity-50"
               whileHover={{ scale: 1.03 }}
+              disabled={isSubmitting || submitted}
             >
               🚀 Solicitar orçamento
             </motion.button>
@@ -135,17 +191,6 @@ function Contact() {
               💬 Ou fale conosco no WhatsApp
             </motion.a>
           </div>
-
-          {/* Feedback após envio */}
-          {submitted && (
-            <motion.div
-              className="mt-4 text-green-600 font-semibold text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              ✅ Formulário enviado com sucesso!
-            </motion.div>
-          )}
         </motion.form>
       </div>
     </section>

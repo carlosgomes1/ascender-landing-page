@@ -151,7 +151,7 @@ function Review() {
           href="#contato"
           className="px-6 py-3 bg-teal-500 text-white hover:bg-[#7FB3D5] rounded-full text-lg font-medium transition-colors shadow-lg"
         >
-          🚀 Orçamento fácil e sem compromisso
+          🚀 Solicite agora seu orçamento
         </a>
       </motion.div>
     </section>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from "@/components/ui/sonner";
+
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Header } from "@/components/Header";
 
@@ -19,12 +21,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ascender Smart | Automação Residencial SP - Casa Inteligente com Alexa, Som Ambiente e Persianas",
+  title:
+    "Ascender Smart | Automação Residencial SP - Casa Inteligente com Alexa, Som Ambiente e Persianas",
 
   description:
     "Transforme sua casa em uma smart home em São Paulo e ABC. Controle luzes, som ambiente, persianas e dispositivos com voz ou celular. Solicite seu orçamento grátis!",
 
-  keywords: ["automação residencial", "SP", "ABC", "Alexa", "smart home", "luzes inteligentes", "som ambiente", "persianas automatizadas"],
+  keywords: [
+    "automação residencial",
+    "SP",
+    "ABC",
+    "Alexa",
+    "smart home",
+    "luzes inteligentes",
+    "som ambiente",
+    "persianas automatizadas",
+  ],
 
   // colocar depois com a url correta e imagem da empresa
   // openGraph: {
@@ -59,6 +71,7 @@ export default function RootLayout({
         <Header />
 
         {children}
+        <Toaster richColors position="top-right" />
       </body>
 
       <Analytics />
