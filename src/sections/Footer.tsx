@@ -23,14 +23,14 @@ function Footer() {
           <h3 className="font-semibold mb-4">Menu</h3>
           <ul className="space-y-2">
             <li>
-              <Link href="/#" className="hover:text-white transition-colors">
+              <Link href="/#" className="hover:text-teal-500 transition-colors">
                 Início
               </Link>
             </li>
             <li>
               <Link
                 href="/#especialidades"
-                className="hover:text-white transition-colors"
+                className="hover:text-teal-500 transition-colors"
               >
                 Especialidades
               </Link>
@@ -38,16 +38,16 @@ function Footer() {
             <li>
               <Link
                 href="/#depoimentos"
-                className="hover:text-white transition-colors"
+                className="hover:text-teal-500 transition-colors"
               >
                 Depoimentos
               </Link>
             </li>
-            {/* <li><a href="#precos" className="hover:text-white transition-colors">Planos</a></li> */}
+            {/* <li><a href="#precos" className="hover:text-teal-500 transition-colors">Planos</a></li> */}
             <li>
               <Link
                 href="/#contato"
-                className="hover:text-white transition-colors"
+                className="hover:text-teal-500 transition-colors"
               >
                 Contato
               </Link>
@@ -63,7 +63,7 @@ function Footer() {
               <Phone className="h-4 w-4 text-green-500" />
               <a
                 href="tel:+5511947596174"
-                className="hover:text-white transition-colors"
+                className="hover:text-teal-500 transition-colors"
               >
                 +55 11 94759-6174
               </a>
@@ -72,7 +72,7 @@ function Footer() {
               <Mail className="h-4 w-4 text-blue-500" />
               <a
                 href="mailto:contato@ascendersmart.com.br"
-                className="hover:text-white transition-colors"
+                className="hover:text-teal-500 transition-colors"
               >
                 contato@ascendersmart.com.br
               </a>
@@ -88,18 +88,18 @@ function Footer() {
               href="https://www.instagram.com/ascender.smart"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="hover:text-teal-500 transition-colors flex items-center gap-2"
               aria-label="Acesse nosso Instagram"
             >
-              <Instagram className="h-5 w-5" />
+              <Instagram className="h-5 w-5" /> <span>ascender.smart</span>
             </a>
-            {/* <a href="#" className="hover:text-white transition-colors">
+            {/* <a href="#" className="hover:text-teal-500 transition-colors">
               <Facebook className="h-5 w-5" />
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#" className="hover:text-teal-500 transition-colors">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#" className="hover:text-teal-500 transition-colors">
               <Youtube className="h-5 w-5" />
             </a> */}
           </div>
@@ -121,7 +121,7 @@ function Footer() {
       {/* Bottom legal section */}
       <div className="bg-gray-800 py-4 px-4 text-center text-sm text-gray-400">
         © 2025 Ascender Smart. Todos os direitos reservados. |
-        <a href="/politica-de-privacidade" className="hover:text-white ml-2">
+        <a href="/politica-de-privacidade" className="hover:text-teal-500 ml-2">
           Política de Privacidade
         </a>
       </div>

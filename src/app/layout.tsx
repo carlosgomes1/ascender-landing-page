@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { Analytics } from "@vercel/analytics/next"
+
 import { Header } from "@/components/Header";
 
 import "./globals.css";
@@ -16,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Automação Residencial SP | Casa Inteligente com Alexa, Som Ambiente e Persianas - Ascender Smart",
+  title: "Ascender Smart | Automação Residencial SP - Casa Inteligente com Alexa, Som Ambiente e Persianas",
 
   description:
     "Transforme sua casa em uma smart home em São Paulo e ABC. Controle luzes, som ambiente, persianas e dispositivos com voz ou celular. Solicite seu orçamento grátis!",
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
 
   // colocar depois com a url correta e imagem da empresa
   // openGraph: {
-  //   title: "Automação Residencial SP | Casa Inteligente - Ascender Smart",
+  //   title: "Ascender Smart - Automação Residencial SP | Casa Inteligente",
   //   description:
   //     "Controle luzes, som ambiente, persianas e dispositivos da sua casa com voz ou celular. Solicite seu orçamento grátis!",
   //   url: "https://www.ascendersmart.com.br", // substitua pela URL real
@@ -57,6 +59,7 @@ export default function RootLayout({
 
         {children}
       </body>
+      <Analytics />
     </html>
   );
 }
