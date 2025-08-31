@@ -38,24 +38,23 @@ export const metadata: Metadata = {
     "persianas automatizadas",
   ],
 
-  // colocar depois com a url correta e imagem da empresa
-  // openGraph: {
-  //   title: "Ascender Smart - Automação Residencial SP | Casa Inteligente",
-  //   description:
-  //     "Controle luzes, som ambiente, persianas e dispositivos da sua casa com voz ou celular. Solicite seu orçamento grátis!",
-  //   url: "https://www.ascendersmart.com.br", // substitua pela URL real
-  //   siteName: "Sua Casa Inteligente",
-  //   images: [
-  //     {
-  //       url: "https://www.ascendersmart.com.br/og-image.jpg", // imagem para preview
-  //       width: 1200,
-  //       height: 630,
-  //       alt: "Automação Residencial Inteligente",
-  //     },
-  //   ],
-  //   locale: "pt_BR",
-  //   type: "website",
-  // },
+  openGraph: {
+    title: "Ascender Smart - Automação Residencial SP | Casa Inteligente",
+    description:
+      "Controle luzes, som ambiente, persianas e dispositivos da sua casa com voz ou celular. Solicite seu orçamento grátis!",
+    url: "https://www.ascendersmart.com.br",
+    siteName: "Sua Casa Inteligente",
+    images: [
+      {
+        url: "https://www.ascendersmart.com.br/ascender.png",
+        width: 1200,
+        height: 630,
+        alt: "Automação Residencial Inteligente",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
