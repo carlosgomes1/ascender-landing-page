@@ -6,7 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
   return [
     ...staticPages.map((page) => ({
-      url: `https://www.seudominio.com.br/${page}`,
+      url: `https://www.ascendersmart.com.br/${page}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: page === "" ? 1 : 0.8,
