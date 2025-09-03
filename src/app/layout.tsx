@@ -39,6 +39,16 @@ export const metadata: Metadata = {
     "persianas automatizadas",
   ],
 
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/ascender-logo-branco-sem-bg.png", // ícone para iOS
+  },
+
+  alternates: {
+    canonical: "https://www.ascendersmart.com.br/",
+  },
+
   openGraph: {
     title: "Ascender Smart - Automação Residencial SP | Casa Inteligente",
     description:
